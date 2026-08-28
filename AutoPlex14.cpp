@@ -316,7 +316,7 @@ void AutoPlex14::multiplex() { // Render the buffer onto the screen
       wipeDisplay(); // Ensure display is blank before rendering a character
       if (buffer[currentDigit] == U'.') { currentDigit++; return; } // If current character is a decimal, simply move on
       digitalWrite(digitPinsClass[(displayPosition + (digitsClass - filterDecimals(buffer)))], digitOn); // Right align the text on the display
-      for(uint8_t i = 0; i < digitsClass; i++){if(i != (displayPosition + (digitsClass - filterDecimals(buffer)))){digitalWrite(digitPinsClass[i], digitOff);}}
+      for (uint8_t i = 0; i < digitsClass; i++) { if(i != (displayPosition)) { digitalWrite(digitPinsClass[i], digitOff); } }
 
       bool charFound = false;
       bool qmarkFound = false;
