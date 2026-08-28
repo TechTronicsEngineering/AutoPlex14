@@ -1,4 +1,4 @@
-#include "AutoPlex7.h"
+#include "AutoPlex14.h"
 
 font systemFont[] = { // A, B, C, D, E, F, G1, G2, H, J, K, L, M, N
   { U'0', 0b11111111111111 }, // Display test
@@ -144,7 +144,7 @@ size_t AutoPlex14::filterDecimals(const char32_t* string) { // Used internally t
       return count;
 }
 
-void AutoPle14::wipeDisplay() { // Used internally to turn the display off without clearing the buffer
+void AutoPlex14::wipeDisplay() { // Used internally to turn the display off without clearing the buffer
       for (uint8_t i = 0; i < digitsClass; i++) { digitalWrite(digitPinsClass[i], digitOff); }
       for (uint8_t i = 0; i < 15; i++) { digitalWrite(segmentPinsClass[i], segmentOff); }
 }
@@ -345,7 +345,7 @@ void AutoPlex14::multiplex() { // Render the buffer onto the screen
       if (currentDigit <= strlen32(buffer)) { currentDigit++; } // Move on to the next digit when the next cycle is reached
 }
 
-AutoPlex14* AutoPlex7::displays[MAX_DISPLAYS] = { nullptr };
+AutoPlex14* AutoPlex14::displays[MAX_DISPLAYS] = { nullptr };
 
 ISR(TIMER1_COMPA_vect) {
       for (uint8_t i = 0; i < _displayIndex; i++) {
