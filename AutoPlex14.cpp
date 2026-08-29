@@ -451,7 +451,7 @@ uint8_t _displayIndex = 0; // The array index of the last display instance
     }
 
 AutoPlex14* AutoPlex14::displays[MAX_DISPLAYS] = { nullptr };
-static bool AutoPlex14::timerConfigured = false;
+bool AutoPlex14::timerConfigured = false;
 
 ISR(TIMER1_COMPA_vect) {
       for (uint8_t i = 0; i < _displayIndex; i++) {
