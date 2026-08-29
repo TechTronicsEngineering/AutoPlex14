@@ -57,6 +57,4 @@ public:
     void print(double num, uint8_t decimalPlaces);
     void print(double num);
 };
-ISR(TIMER1_COMPA_vect);
-
 #endif
