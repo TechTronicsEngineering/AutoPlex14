@@ -215,7 +215,6 @@ uint8_t _displayIndex = 0; // The array index of the last display instance
     void AutoPlex14::setFont(font* newFont) {
       noInterrupts();
       currentFont = newFont;
-      displayPos = 0; bufferPos = 0;
       interrupts();
     }
     void AutoPlex14::print(const char32_t* text) { // Shows a string on the display; works with any Unicode character the selected font defines
@@ -230,7 +229,6 @@ uint8_t _displayIndex = 0; // The array index of the last display instance
       }else{
         strcpy32(buffer, text); // Else copy the new string into the buffer for display contents
       }
-      displayPos = 0; bufferPos = 0;
       interrupts();
     }
     void AutoPlex14::print(const char* text) { // Shows a string on the display; only works with ASCII characters
@@ -245,7 +243,6 @@ uint8_t _displayIndex = 0; // The array index of the last display instance
       }else{
         strcpy8to32(buffer, text); // Else paste the new contents into the buffer
       }
-      displayPos = 0; bufferPos = 0;
       interrupts();
     }
     void AutoPlex14::print(int num) { // Set the fourteen segment display's buffer to an integer
@@ -262,7 +259,6 @@ uint8_t _displayIndex = 0; // The array index of the last display instance
       }else{
         strcpy8to32(buffer, temporary); // Else, paste the number into the display buffer
       }
-      displayPos = 0; bufferPos = 0;
       interrupts();
     }
     void AutoPlex14::print(double num) { // Set the fourteen segment display's buffer to a double/float
@@ -297,7 +293,6 @@ uint8_t _displayIndex = 0; // The array index of the last display instance
       }else{
         strcpy8to32(buffer, temporary); // Copy the new number into the buffer
       }
-      displayPos = 0; bufferPos = 0;
       interrupts();
     }
     void AutoPlex14::append(const char32_t* text) { // Add a 32-bit string suffix to the current display contents
@@ -318,7 +313,6 @@ uint8_t _displayIndex = 0; // The array index of the last display instance
         buffer[i++] = text[u];
       }
       buffer[i] = U'\0'; // Terminate string
-      displayPos = 0; bufferPos = 0;
       interrupts();
     }
     void AutoPlex14::append(const char* text) { // Add an ASCII string suffix to the current display contents
@@ -339,7 +333,6 @@ uint8_t _displayIndex = 0; // The array index of the last display instance
         buffer[i++] = (char32_t)text[u];
       }
       buffer[i] = U'\0'; // Terminate string
-      displayPos = 0; bufferPos = 0;
       interrupts();
     }
     void AutoPlex14::append(int num) { // Add an integer suffix to the current display contents
@@ -364,7 +357,6 @@ uint8_t _displayIndex = 0; // The array index of the last display instance
         buffer[i++] = string32[u];
       }
       buffer[i] = U'\0'; // Terminate string
-      displayPos = 0; bufferPos = 0;
       interrupts();
     }
     void AutoPlex14::append(double num, uint8_t decimalPlaces) { // Add a double suffix to the current display contents
@@ -390,7 +382,6 @@ uint8_t _displayIndex = 0; // The array index of the last display instance
         buffer[i++] = string32[u];
       }
       buffer[i] = U'\0'; // Terminate string
-      displayPos = 0; bufferPos = 0;
       interrupts();
     }
     void AutoPlex14::testDisplay(unsigned long ms) {
