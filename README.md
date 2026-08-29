@@ -83,10 +83,10 @@ MyDisplay.print(1234); // Prints 1234 as an integer
 MyDisplay.print(12.3456789, 2); // Prints 12.34 as a float, showing two digits after the decimal
 ```
 ```C++
-MyDisplay.print(12.3456789) // Prints 12.3456789 as a float, and automatically determines where to truncate based on the display size
+MyDisplay.print(12.3456789); // Prints 12.3456789 as a float, and automatically determines where to truncate based on the display size
 ```
 ```C++
-MyDisplay.print("HI."); // Prints the ASCII string "HI.' onto the display
+MyDisplay.print("HI."); // Prints the ASCII string "HI." onto the display
 ```
 ```C++
 MyDisplay.print(U"±200µΩ"); // Prints the Unicode string "±200µΩ" onto the display
@@ -97,7 +97,7 @@ MyDisplay.print(U"±200µΩ"); // Prints the Unicode string "±200µΩ" onto the
 #### Appending characters to the display
 AutoPlex14 also features an `append()` method. It is almost identical to `print()`, except that it does not replace the previous display contents; instead, it adds the new ones onto them.
 ###### *NOTE 1: Currently, `append()` does not support autoranging for floating point numbers. You must define how many digits to show after the decimal manually.*
-###### *NOTE 2: NOTE: it is strongly discouraged to use `append()` heavily with automated multiplexing. Should you choose to, you may notice significant flicker on the display. This is due to rendering of temporary or partially overwritten display states caused by interrupts. If you need to use the append() method often, it's best to disable automatic multiplexing and call multiplex() manually within loop(). Be aware that this will mandate non-blocking code.*
+###### *NOTE 2: it is strongly discouraged to use `append()` heavily with automated multiplexing. Should you choose to, you may notice significant flicker on the display. This is due to rendering of temporary or partially overwritten display states caused by interrupts. If you need to use the append() method often, it's best to disable automatic multiplexing and call multiplex() manually within loop(). Be aware that this will mandate non-blocking code.*
 
 #### Clearing the display
 Occasionally, you may find yourself needing to clear the display. This can be done using the `clear()` method.
@@ -169,10 +169,14 @@ void setup() {
 To achieve higher brightness, AutoPlex14 features support for transistor-driven displays. Using this is fairly straightforward; simply swap the displayType variable from type bool to byte, and set it's value to either CAWDDT (**C**ommon **A**node **W**ith **D**igit **D**rive **T**ransistors) or CCWDDT (**C**ommon **C**athode **W**ith **D**igit **D**rive **T**ransistors)
 ```C++
 void setup() {
-  byte displayType1 = /*CAWDDT or CCWDDT*/;
+  byte displayType = /*CAWDDT or CCWDDT*/;
   ...
 }
 ```
+### Things to keep in mind
+1. **Current limiting:** Always use appropriate current-limiting resistors (on digit pins for directly driven displays, and segment pins for transistor-driven displays)
+2. **Timer1 conflicts:** This library uses Timer1, and thus may conflict with other libraries that do as well.
+3. **Compatibility:** AutoPlex14 is only compatible with AVR boards.
 
 ### MIT License
 Copyright (c) 2026 TechTronics
