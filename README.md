@@ -173,11 +173,12 @@ void setup() {
   ...
 }
 ```
+#
 ### Things to keep in mind
 1. **Current limiting:** Always use appropriate current-limiting resistors (on digit pins for directly driven displays, and segment pins for transistor-driven displays)
 2. **Timer1 conflicts:** This library uses Timer1, and thus may conflict with other libraries that do as well.
 3. **Compatibility:** AutoPlex14 is only compatible with AVR boards.
-
+#
 ### MIT License
 Copyright (c) 2026 TechTronics
 
