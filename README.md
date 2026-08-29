@@ -155,7 +155,7 @@ void setup() {
   bool displayType1 = COMMON_CATHODE;
   byte displayDigits1 = 2;
   byte digitPins1[] = {0, 1};
-  byte segmentPins1[] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13. 14, 15};
+  byte segmentPins1[] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
   display1.begin(displayType1, displayDigits1, digitPins1, segmentPins1);
   bool displayType2 = COMMON_ANODE;
   byte displayDigits2 = 4;
