@@ -30,7 +30,7 @@ private:
     bool segmentOn, segmentOff, digitOn, digitOff;
     volatile uint8_t bufferPos = 0; // The character within the buffer which the multiplexing logic is currently reviewing
     volatile uint8_t displayPos = 0; // The physical position of the current character on the display
-    static bool timerInitialized;
+    static bool timerConfigured;
     char32_t buffer[(MAX_DIGITS * 2) + 1] = U""; // Buffer to hold the contents of the display. Enough space for MAX_DIGITS characters, decimal points, and a null termination
     font* currentFont = defaultFont;
     bool manualplexing = false;
