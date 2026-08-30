@@ -34,7 +34,7 @@
 
 AutoPlex14 MyDisplay; // Create a display object named "MyDisplay"
 
-font individualSegments = { // A font that represents individual segments turned on
+font individualSegments[] = { // A font that represents individual segments turned on
   { U'0', 0b10000000000000 },
   { U'1', 0b01000000000000 },
   { U'2', 0b00100000000000 },
@@ -54,7 +54,7 @@ font individualSegments = { // A font that represents individual segments turned
 
 void cyclePlex() { // A multiplexing animation that cycles through segments at increasing speeds, and then turns them all on
   MyDisplay.setFont(individualSegments);
-  for (unsigned int i = 50; i > 0; i--) { // Increase speed each cycle
+  for (unsigned int i = 50; i > 0; i-=5) { // Increase speed each cycle
     MyDisplay.print("0000");
     delay(i);
     MyDisplay.print("1111");
@@ -125,7 +125,7 @@ void setup() {
   bool displayType = COMMON_CATHODE; // Change to "COMMON_ANODE" if using a common anode display
   byte digits = 4; // Four-digit display
   byte digitPins[] = { A1, A2, A3, A4 };
-  byte segmentPins[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
+  byte segmentPins[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, A0 };
   MyDisplay.begin(displayType, digits, digitPins, segmentPins);
   cyclePlex();
   helloWorld();
@@ -145,23 +145,23 @@ void loop() {
   MyDisplay.print(6789);
   delay(500);
   MyDisplay.print("6.789");
-  delay(500);
+  delay(150);
   MyDisplay.print("6.7.89");
   delay(150);
   MyDisplay.print("6.7.8.9");
   delay(150);
   MyDisplay.print("6.7.8. ");
-  delay(50);
+  delay(150);
   MyDisplay.print("6.7.8 ");
-  delay(50);
+  delay(150);
   MyDisplay.print("6.7.  ");
-  delay(50);
+  delay(150);
   MyDisplay.print("6.7  ");
-  delay(50);
+  delay(150);
   MyDisplay.print("6.   ");
-  delay(50);
+  delay(150);
   MyDisplay.print("6   ");
-  delay(50);
+  delay(150);
   MyDisplay.clear();
   delay(500);
   MyDisplay.print("ABCD");
