@@ -183,14 +183,9 @@ uint8_t _displayIndex = 0; // The array index of the last display instance
         manualplexing = false;
         noInterrupts();
         displays[_displayIndex++] = this; // Register new display instance
-        if (!timerConfigured) { // If it hasn't already been set up, configure Timer1 for automatic multiplexing
-          TCCR1A = 0;
-          TCCR1B = 0;
-          TCNT1  = 0;
-          OCR1A = 249;
-          TCCR1B |= (1 << WGM12);
-          TCCR1B |= (1 << CS11) | (1 << CS10);
-          TIMSK1 |= (1 << OCIE1A);
+        if (!timerConfigured) { // If it hasn't already been set up, configure Timer0 for automatic multiplexing
+          OCR0A = 0xAF;
+          TIMSK0 |= _BV(OCIE0A);
           timerConfigured = true;
         }
         interrupts();
@@ -444,7 +439,7 @@ uint8_t _displayIndex = 0; // The array index of the last display instance
 AutoPlex14* AutoPlex14::displays[MAX_DISPLAYS] = { nullptr };
 bool AutoPlex14::timerConfigured = false;
 
-ISR(TIMER1_COMPA_vect) {
+ISR(TIMER0_COMPA_vect) {
       for (uint8_t i = 0; i < _displayIndex; i++) {
         AutoPlex14::displays[i]->multiplex();
       }
