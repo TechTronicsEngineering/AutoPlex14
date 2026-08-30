@@ -1,6 +1,6 @@
 # AutoPlex14
 ### The most capable Arduino library for fourteen-segment displays
-AutoPlex14 is one of the most powerful Arduino libraries for controlling 14-segment displays. Unlike traditional LED-display libraries, AutoPlex14 handles multiplexing seamlessly using a hardware timer; meaning you never need to refresh the display. This frees up the main loop() and permits blocking code while not display flicker.
+AutoPlex14 is one of the most powerful Arduino libraries for controlling 14-segment displays. Unlike traditional LED-display libraries, AutoPlex14 handles multiplexing seamlessly using a hardware timer; meaning you never need to refresh the display. This frees up the main loop() and permits blocking code without introducing display flicker.
 
 ### Features
 * Background multiplexing
