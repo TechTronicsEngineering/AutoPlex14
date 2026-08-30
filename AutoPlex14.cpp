@@ -264,7 +264,7 @@ uint8_t _displayIndex = 0; // The array index of the last display instance
     void AutoPlex14::print(double num) { // Set the fourteen segment display's buffer to a double/float
       int32_t numInt = num; // Truncate the float into an integer
       char numIntString[11]; itoa(numInt, numIntString, 10); // Create a string containing the input as an integer
-      uint16_t decimalPlaces = digitsClass - strlen(numIntString); // Clculate how many decimal places can fit on the display
+      uint16_t decimalPlaces = digitsClass - strlen(numIntString); // Calculate how many decimal places can fit on the display
       char temporary[11]; dtostrf(num, 0, decimalPlaces, temporary); // Create a string for the display
       noInterrupts();
       if (filterDecimals(temporary) > digitsClass) { // If the new number is too large for the display...
