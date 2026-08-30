@@ -54,7 +54,8 @@ void setup() {
                          UPPER_RIGHT_DIAGONAL_SEGMENT,
                          LOWER_RIGHT_DIAGONAL_SEGMENT,
                          LOWER_MIDDLE_VERTICAL_SEGMENT,
-                         LOWER_LEFT_DIAGONAL_SEGMENT*/
+                         LOWER_LEFT_DIAGONAL_SEGMENT,
+                         DECIMAL_POINT_SEGMENT*/
                        };
 ```
 ###### Be sure to replace the applicable comments with your display info and pin connections.
@@ -155,12 +156,12 @@ void setup() {
   bool displayType1 = COMMON_CATHODE;
   byte displayDigits1 = 2;
   byte digitPins1[] = {0, 1};
-  byte segmentPins1[] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+  byte segmentPins1[] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
   display1.begin(displayType1, displayDigits1, digitPins1, segmentPins1);
   bool displayType2 = COMMON_ANODE;
   byte displayDigits2 = 4;
-  byte digitPins2[] = {16, 17, 18, 19};
-  byte segmentPins2[] = {20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33};
+  byte digitPins2[] = {17, 18, 19, 20};
+  byte segmentPins2[] = {21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35};
   display2.begin(displayType2, displayDigits2, digitPins2, segmentPins2);
 }
 ```
