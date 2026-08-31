@@ -134,7 +134,7 @@ MyDisplay.setFont(defaultFont);
 AutoPlex14 has many features designed for advanced users.
 
 #### Manual multiplexing
-Although by default, AutoPlex14 handles multiplexing in the background by using Timer1, it is possible to disable this. When you call `begin()` on a new display object, you may add a fifth argument "MANUALPLEX."
+Although by default, AutoPlex14 handles multiplexing in the background by using Timer0, it is possible to disable this. When you call `begin()` on a new display object, you may add a fifth argument "MANUALPLEX."
 ```C++
 MyDisplay.begin(displayType, displayDigits, digitPins, segmentPins, MANUALPLEX);
 ```
