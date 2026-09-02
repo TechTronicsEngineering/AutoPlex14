@@ -404,7 +404,7 @@ uint8_t _displayIndex = 0; // The array index of the last display instance
         return; // Do nothing else, return
       }
       if (strlen32(buffer) <= bufferPos) { displayPos = 0; bufferPos = 0; } // If all characters in the buffer have been rendered, cycle back to the first
-      if (buffer[bufferPos] == U'.') { bufferPos++; if(buffer[bufferPos + 1] == '.') { displayPos++; } return; } // If the current character is a decimal, simply move on to the next
+      if (buffer[bufferPos] == U'.') { bufferPos++; } // If the current character is a decimal, simply move on to the next
       uint8_t digitPos = (displayPos + (digitsClass - filterDecimals(buffer)));
       digitalWrite(digitPinsClass[digitPos], digitOn); // Right align the text on the display
       for (uint8_t i = 0; i < digitsClass; i++) { if (i != (digitPos)) { digitalWrite(digitPinsClass[i], digitOff); } } // Turn off all digits besides the current one
