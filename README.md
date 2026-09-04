@@ -14,13 +14,17 @@ AutoPlex14 is one of the most powerful Arduino libraries for controlling 14-segm
 #
 
 ### Installation
-To use AutoPlex14 in an Arduino sketch, you'll first need to install it.
+To use AutoPlex14 in an Arduino sketch, you'll first need to install it. This can be done one of two ways:
 
-**STEP 1.** Locate the large green button labeled "Code" on this repository's homepage. Click on it and select the option "Download ZIP."
+1. Through Github
 
-**STEP 2.** Launch the Arduino IDE and hover over "Sketch" at the top. Near the bottom of the numerous options that appear, you should find "Include library." Selecting this will open a new menu, where you'll find "Add .ZIP Library." Click this; then find and open AutoPlex14-main from your downloads folder.
+Locate the large green button labeled "Code" on this repository's homepage. Click it and select "Download ZIP." Launch the Arduino IDE and locate the menu labelled "Sketch" on the top left. Open it, select "Include library" -> "Add .ZIP library." Navigate to your recent downloads and select AutoPlex14. This method ensures you get the latest version of the library.
 
-The library is now ready.
+2. Directly from the Arduino IDE
+
+Open the IDE. Find the icon on the left with the stack of books and hover text "library manager," then click on it. This should open a small menu. Search for "AutoPlex14," then click install.
+
+The library is now installed and ready for use.
 
 ### Initialization
 Now that AutoPlex14 has been installed, it needs to be added to your sketch and configured to control your display.
