@@ -34,6 +34,16 @@ private:
     char32_t buffer[(MAX_DIGITS * 2) + 1] = U""; // Buffer to hold the contents of the display. Enough space for MAX_DIGITS characters, decimal points, and a null termination
     font* currentFont = defaultFont;
     bool manualplexing = false;
+    inline __attribute__ ((always_inline)) void fastWrite(uint8_t pin, bool val) {
+      uint8_t bit = digitalPinToBitMask(pin);
+      uint8_t port = digitalPinToPort(pin);
+      volatile uint8_t *out = portOutputRegister(port);
+      if (val) {
+        *out |= bit;
+      }else{
+        *out &= ~bit;
+      }
+    }
     void wipeDisplay();
     size_t filterDecimals(const char32_t* string);
     size_t filterDecimals(const char* string);
