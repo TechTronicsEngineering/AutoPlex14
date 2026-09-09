@@ -150,6 +150,10 @@ void loop() {
   delay(150);
   MyDisplay.print("6.7.8.9");
   delay(150);
+  MyDisplay.print("6.7.8.9.");
+  delay(150);
+  MyDisplay.print("6.7.8.9");
+  delay(150);
   MyDisplay.print("6.7.8. ");
   delay(150);
   MyDisplay.print("6.7.8 ");
