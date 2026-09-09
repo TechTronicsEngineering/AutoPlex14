@@ -17,7 +17,7 @@ struct glyph {
   uint16_t bitmap;
 };
 
-#define font const glyph
+using font = const glyph;
 #define END { 0, 0 }
 
 extern font systemFont[];
